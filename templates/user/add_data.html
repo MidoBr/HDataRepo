@@ -1,0 +1,44 @@
+{% extends "user/layout.html" %}
+{% block content %}
+{% include 'user/navbar.html' %}
+  <h2>Add New Employee Data</h2>
+  <form method="POST" action="/user/add-data">
+    <div class="form-group">
+      <label for="firstname">First Name:</label>
+      <input type="text" class="form-control" id="firstname" name="firstname" required>
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name:</label>
+      <input type="text" class="form-control" id="lastname" name="lastname" required>
+    </div>
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <input type="text" class="form-control" id="gender" name="gender" required>
+    </div>
+    <div class="form-group">
+      <label for="immunization_history">Immunization History:</label>
+      <input type="text" class="form-control" id="immunization_history" name="immunization_history" required>
+    </div>
+    <div class="form-group">
+      <label for="insurance_provider_details">Insurance Provider Details:</label>
+      <input type="text" class="form-control" id="insurance_provider_details" name="insurance_provider_details" required>
+    </div>
+    <div class="form-group">
+      <label for="past_illnesses">Past Illnesses:</label>
+      <input type="text" class="form-control" id="past_illnesses" name="past_illnesses" required>
+    </div>
+    <div class="form-group">
+      <label for="policy_number">Policy Number:</label>
+      <input type="text" class="form-control" id="policy_number" name="policy_number" required>
+    </div>
+    <div class="form-group">
+      <label for="last_checkup">Last Checkup:</label>
+      <input type="date" class="form-control" id="last_checkup" name="last_checkup">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone:</label>
+      <input type="text" class="form-control" id="phone" name="phone">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

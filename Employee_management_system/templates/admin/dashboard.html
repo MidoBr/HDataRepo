@@ -1,0 +1,43 @@
+{% extends 'admin/layout.html' %}
+{% block content %}
+<div class="container">
+    {% include 'admin/navbar.html' %}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-4 my-2 col-lg-4 col-md-6 col-sm-12">
+            <div class="card bg-primary text-white">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h5 class="card-title">Total User</h5>
+                        <p class="card-text">{{ totalUser }}</p>
+                    </div>
+                    <a href="/admin/get-all-user" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 my-2 col-lg-4 col-md-6 col-sm-12">
+            <div class="card bg-secondary text-white">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Patients</h5>
+                        <p class="card-text">1 </p>
+                    </div>
+                    <a href="/admin/all-orders" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 my-2 col-lg-4 col-md-6 col-sm-12">
+            <div class="card bg-info text-white">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Revenue</h5>
+                        <p class="card-text">0</p>
+                    </div>
+                    <a href="/admin/revenue-details" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

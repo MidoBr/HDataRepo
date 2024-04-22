@@ -1,0 +1,68 @@
+{% extends "user/layout.html" %}
+
+{% block content %}
+<div class="container">
+    {% with messages=get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category,message in messages %}
+    <div class="alert alert-{{category}}">
+        <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% include 'user/navbar.html' %}
+    <div class="container">
+        <div class="my-2 d-flex justify-content-between align-items-center">
+            <form action="" method="POST" style="width:50%">
+                <div class="input-group">
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Search...">
+                    <button type="submit" class="btn btn-success">Search</button>
+                </div>
+            </form>
+            <a href="/user/add_data" class="btn btn-primary">
+                <i class="bi bi-plus-lg"></i> New data
+            </a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Immunization History</th>
+                    <th scope="col">Insurance Provider Details</th>
+                    <th scope="col">Past Illnesses</th>
+                    <th scope="col">Policy Number</th>
+                    <th scope="col">Last Checkup</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data %}
+                <tr>
+                    <th scope="row">{{ data.id }}</th>
+                    <td>{{ data.firstname }}</td>
+                    <td>{{ data.lastname }}</td>
+                    <td>{{ data.gender }}</td>
+                    <td>{{ data.immunization_history }}</td>
+                    <td>{{ data.insurance_provider_details }}</td>
+                    <td>{{ data.past_illnesses }}</td>
+                    <td>{{ data.policy_number }}</td>
+                    <td>{{ data.last_checkup }}</td>
+                    <td>{{ data.phone }}</td>
+                    <td class="d-flex ">
+                        <a href="/user/edit/{{ data.id }}" class="btn btn-primary btn-sm " style="margin-right:10px"><i class="bi bi-pencil-square"></i></a>
+                        <form action="/user/delete-data/{{ data.id }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
